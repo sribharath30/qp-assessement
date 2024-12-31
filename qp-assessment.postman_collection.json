@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "ec673995-41b7-4369-8cf1-c653203aef2c",
+		"name": "qp-assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18516989"
+	},
+	"item": [
+		{
+			"name": "Admin Endpoints",
+			"item": [
+				{
+					"name": "GetGroceryItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Admin}}/grocery-items",
+							"host": [
+								"{{Admin}}"
+							],
+							"path": [
+								"grocery-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddGroceryItem",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "        {\n            \"name\": \"fish\",\n            \"description\": \"Fresh fish\",\n            \"price\": \"5.99\",\n            \"category\": \"SeaFood\"\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Admin}}/grocery-items",
+							"host": [
+								"{{Admin}}"
+							],
+							"path": [
+								"grocery-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteGroceryItem",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Admin}}//grocery-items/:id",
+							"host": [
+								"{{Admin}}"
+							],
+							"path": [
+								"",
+								"grocery-items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateGroceryItem",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Admin}}/grocery-items/:id",
+							"host": [
+								"{{Admin}}"
+							],
+							"path": [
+								"grocery-items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ManageInventoryLevel",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetGroceryItems",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{User}}/items",
+							"host": [
+								"{{User}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BookGroceryItems",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"items\":[\n        {\"itemId\": 1, \"quantity\": 2},\n        {\"itemId\": 2, \"quantity\": 3}\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{User}}/orders/1",
+							"host": [
+								"{{User}}"
+							],
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewOrder",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{User}}/orders/:id",
+							"host": [
+								"{{User}}"
+							],
+							"path": [
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth Endpoints",
+			"item": [
+				{
+					"name": "sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"bharath\",\n  \"email\": \"bharath@example.com\",\n  \"password\": \"hashedpassword3\",\n  \"phone\": \"987-654-3210\",\n  \"address\": \"456 Elm St, Springfield, IL\",\n  \"role\": \"admin\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Auth}}/sign-up",
+							"host": [
+								"{{Auth}}"
+							],
+							"path": [
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"bharath@example.com\",\n  \"password\": \"hashedpassword3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Auth}}/login",
+							"host": [
+								"{{Auth}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
